@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rooted Prosperity Blueprint: Crypto Calm Protocol</title>
+    <style>
+        /* Brand Colors - Replace with your specific brand colors */
+        :root {
+            --primary: #D8DDE0; /* fog grey */
+            --secondary: #C25B3F; /* terracotta accent */
+            --neutral-light: #F0EAE3; /* bone */
+            --neutral-mid: #B3BFB8; /* sage */
+            --neutral-dark: #9A9A9A; /* ash */
+            --text-color: #333333;
+            --background: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .container {
+            background-color: var(--neutral-light);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #a84935;
+        }
+
+        .btn-secondary {
+            background-color: var(--neutral-mid);
+        }
+
+        .btn-secondary:hover {
+            background-color: #95a099;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .option {
+            background-color: var(--primary);
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option:hover {
+            background-color: var(--neutral-mid);
+        }
+
+        .option.selected {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .technique {
+            background-color: var(--neutral-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .technique h3 {
+            color: var(--secondary);
+        }
+
+        .timer-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .timer-display {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--secondary);
+            width: 0%;
+            transition: width 1s linear;
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            h3 {
+                font-size: 18px;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Crypto Calm Protocol</h1>
+        
+        <!-- Welcome Section -->
+        <div id="welcome" class="section active">
+            <h2>Welcome to Your Interactive Emotional Stability Guide</h2>
+            <p>This interactive tool will help you identify your current nervous system state and provide targeted techniques to help you regulate for optimal financial decision-making.</p>
+            <p>Your nervous system state directly impacts your ability to make clear, confident decisions in the crypto market. This protocol will help you move from reactivity to responsiveness.</p>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="showSection('assessment')">Begin Assessment</button>
+                <button class="btn btn-secondary" onclick="showSection('technique-library')">Browse All Techniques</button>
+            </div>
+        </div>
+        
+        <!-- Assessment Section -->
+        <div id="assessment" class="section">
+            <h2>Nervous System State Assessment</h2>
+            <p>Answer these questions to identify your current nervous system state and get personalized recommendations.</p>
+            
+            <div class="question">
+                <h3>1. How does your body feel right now?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q1')" data-value="hyperarousal">Tense, jittery, or on edge</div>
+                    <div class="option" onclick="selectOption(this, 'q1')" data-value="hypoarousal">Heavy, foggy, or disconnected</div>
+                    <div class="option" onclick="selectOption(this, 'q1')" data-value="optimal">Calm, present, and balanced</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>2. How would you describe your thoughts?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q2')" data-value="hyperarousal">Racing, worried about market movements</div>
+                    <div class="option" onclick="selectOption(this, 'q2')" data-value="hypoarousal">Slow, unclear, or having trouble focusing</div>
+                    <div class="option" onclick="selectOption(this, 'q2')" data-value="optimal">Clear, measured, and able to process information</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>3. How are you breathing?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this, 'q3')" data-value="hyperarousal">Shallow, rapid, or holding my breath</div>
+                    <div class="option" onclick="selectOption(this, 'q3')" data-value="hypoarousal">Shallow, sighing, or forgetting to breathe</div>
+                    <div class="option" onclick="selectOption(this, 'q3')" data-value="optimal">Deep, rhythmic, and full</div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="processAssessment()">Get Recommendations</button>
+                <button class="btn btn-secondary" onclick="showSection('welcome')">Back</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div id="results" class="section">
+            <h2 id="results-title">Your Nervous System State</h2>
+            <p id="results-description"></p>
+            
+            <div id="hyperarousal-results" class="hidden">
+                <h3>You're experiencing hyperarousal</h3>
+                <p>Your nervous system is in a heightened state of alertness, which can lead to reactive decision-making and anxiety about market movements.</p>
+                <p>These downregulation techniques will help you return to a balanced state:</p>
+                
+                <div class="technique">
+                    <h3>5-5-5 Reset (1 minute)</h3>
+                    <p>A quick breathing technique to calm your nervous system.</p>
+                    <button class="btn" onclick="startTechnique('five-five-five')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>Body Grounding Scan (2 minutes)</h3>
+                    <p>A sensory awareness practice to bring you back to the present moment.</p>
+                    <button class="btn" onclick="startTechnique('body-scan')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>Vagus Nerve Reset (30 seconds)</h3>
+                    <p>A physical technique to directly activate your parasympathetic nervous system.</p>
+                    <button class="btn" onclick="startTechnique('vagus-reset')">Start Technique</button>
+                </div>
+            </div>
+            
+            <div id="hypoarousal-results" class="hidden">
+                <h3>You're experiencing hypoarousal</h3>
+                <p>Your nervous system is in a low-energy state, which can lead to foggy thinking and difficulty making decisions.</p>
+                <p>These upregulation techniques will help energize your system:</p>
+                
+                <div class="technique">
+                    <h3>Breath of Fire (1 minute)</h3>
+                    <p>An energizing breath technique to increase alertness and focus.</p>
+                    <button class="btn" onclick="startTechnique('breath-of-fire')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>Cross-Body Activation (2 minutes)</h3>
+                    <p>Movement patterns that integrate both hemispheres of your brain.</p>
+                    <button class="btn" onclick="startTechnique('cross-body')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>Cold Exposure (30 seconds)</h3>
+                    <p>A quick temperature change to reset your alertness.</p>
+                    <button class="btn" onclick="startTechnique('cold-exposure')">Start Technique</button>
+                </div>
+            </div>
+            
+            <div id="optimal-results" class="hidden">
+                <h3>You're in an optimal regulation state</h3>
+                <p>Your nervous system is balanced, which is ideal for making clear, confident financial decisions.</p>
+                <p>These techniques will help you maintain this balanced state:</p>
+                
+                <div class="technique">
+                    <h3>Coherent Breathing (3 minutes)</h3>
+                    <p>A breathing pattern that balances your autonomic nervous system.</p>
+                    <button class="btn" onclick="startTechnique('coherent-breathing')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>3-3-6 Breath (2 minutes)</h3>
+                    <p>A breathing pattern that enhances focus and clarity.</p>
+                    <button class="btn" onclick="startTechnique('three-three-six')">Start Technique</button>
+                </div>
+                
+                <div class="technique">
+                    <h3>Body Tapping Sequence (1 minute)</h3>
+                    <p>A gentle tapping routine to regulate energy throughout your body.</p>
+                    <button class="btn" onclick="startTechnique('body-tapping')">Start Technique</button>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="showSection('assessment')">Retake Assessment</button>
+                <button class="btn btn-secondary" onclick="showSection('technique-library')">View All Techniques</button>
+            </div>
+        </div>
+        
+        <!-- Technique Library Section -->
+        <div id="technique-library" class="section">
+            <h2>Complete Technique Library</h2>
+            <p>Browse all techniques organized by nervous system state.</p>
+            
+            <h3>Downregulation Techniques (For Hyperarousal)</h3>
+            <div class="technique">
+                <h3>5-5-5 Reset (1 minute)</h3>
+                <p>A quick breathing technique to calm your nervous system.</p>
+                <button class="btn" onclick="startTechnique('five-five-five')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>Body Grounding Scan (2 minutes)</h3>
+                <p>A sensory awareness practice to bring you back to the present moment.</p>
+                <button class="btn" onclick="startTechnique('body-scan')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>Vagus Nerve Reset (30 seconds)</h3>
+                <p>A physical technique to directly activate your parasympathetic nervous system.</p>
+                <button class="btn" onclick="startTechnique('vagus-reset')">Start Technique</button>
+            </div>
+            
+            <h3>Upregulation Techniques (For Hypoarousal)</h3>
+            <div class="technique">
+                <h3>Breath of Fire (1 minute)</h3>
+                <p>An energizing breath technique to increase alertness and focus.</p>
+                <button class="btn" onclick="startTechnique('breath-of-fire')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>Cross-Body Activation (2 minutes)</h3>
+                <p>Movement patterns that integrate both hemispheres of your brain.</p>
+                <button class="btn" onclick="startTechnique('cross-body')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>Cold Exposure (30 seconds)</h3>
+                <p>A quick temperature change to reset your alertness.</p>
+                <button class="btn" onclick="startTechnique('cold-exposure')">Start Technique</button>
+            </div>
+            
+            <h3>Balanced Regulation Techniques (For Maintenance)</h3>
+            <div class="technique">
+                <h3>Coherent Breathing (3 minutes)</h3>
+                <p>A breathing pattern that balances your autonomic nervous system.</p>
+                <button class="btn" onclick="startTechnique('coherent-breathing')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>3-3-6 Breath (2 minutes)</h3>
+                <p>A breathing pattern that enhances focus and clarity.</p>
+                <button class="btn" onclick="startTechnique('three-three-six')">Start Technique</button>
+            </div>
+            
+            <div class="technique">
+                <h3>Body Tapping Sequence (1 minute)</h3>
+                <p>A gentle tapping routine to regulate energy throughout your body.</p>
+                <button class="btn" onclick="startTechnique('body-tapping')">Start Technique</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="showSection('welcome')">Back to Welcome</button>
+            </div>
+        </div>
+        
+        <!-- 5-5-5 Reset Technique -->
+        <div id="five-five-five" class="section">
+            <h2>5-5-5 Reset</h2>
+            <p>This quick breathing technique helps calm your nervous system when you're feeling anxious or overwhelmed.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="five-five-five-timer">01:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="five-five-five-progress"></div>
+                </div>
+            </div>
+            
+            <div id="five-five-five-instruction">
+                <p>Prepare to begin the 5-5-5 Reset:</p>
+                <p>1. Inhale for 5 seconds</p>
+                <p>2. Hold for 5 seconds</p>
+                <p>3. Exhale for 5 seconds</p>
+                <p>4. Repeat for 1 minute</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="five-five-five-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="five-five-five-start" onclick="startTimer('five-five-five', 60)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="five-five-five-stop" onclick="stopTimer('five-five-five')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Body Grounding Scan -->
+        <div id="body-scan" class="section">
+            <h2>Body Grounding Scan</h2>
+            <p>This sensory awareness practice brings you back to the present moment when you're feeling anxious or reactive.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="body-scan-timer">02:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="body-scan-progress"></div>
+                </div>
+            </div>
+            
+            <div id="body-scan-instruction">
+                <p>Prepare to begin the Body Grounding Scan:</p>
+                <p>1. Notice 5 things you can see</p>
+                <p>2. Notice 4 things you can touch</p>
+                <p>3. Notice 3 things you can hear</p>
+                <p>4. Notice 2 things you can smell</p>
+                <p>5. Notice 1 thing you can taste</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="body-scan-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="body-scan-start" onclick="startTimer('body-scan', 120)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="body-scan-stop" onclick="stopTimer('body-scan')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Vagus Nerve Reset -->
+        <div id="vagus-reset" class="section">
+            <h2>Vagus Nerve Reset</h2>
+            <p>This physical technique directly activates your parasympathetic nervous system to reduce anxiety and reactivity.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="vagus-reset-timer">00:30</div>
+                <div class="progress-bar">
+                    <div class="progress" id="vagus-reset-progress"></div>
+                </div>
+            </div>
+            
+            <div id="vagus-reset-instruction">
+                <p>Prepare to begin the Vagus Nerve Reset:</p>
+                <p>1. Take a deep breath in</p>
+                <p>2. Hum on the exhale</p>
+                <p>3. Feel the vibration in your chest</p>
+                <p>4. Continue for 30 seconds</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="vagus-reset-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="vagus-reset-start" onclick="startTimer('vagus-reset', 30)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="vagus-reset-stop" onclick="stopTimer('vagus-reset')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Breath of Fire -->
+        <div id="breath-of-fire" class="section">
+            <h2>Breath of Fire</h2>
+            <p>This energizing breath technique increases alertness and focus when you're feeling foggy or disconnected.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="breath-of-fire-timer">01:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="breath-of-fire-progress"></div>
+                </div>
+            </div>
+            
+            <div id="breath-of-fire-instruction">
+                <p>Prepare to begin Breath of Fire:</p>
+                <p>1. Sit with a straight spine</p>
+                <p>2. Take a deep breath in</p>
+                <p>3. Begin rapid, rhythmic breathing through your nose</p>
+                <p>4. Focus on sharp, powerful exhales</p>
+                <p>5. Continue for 1 minute</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="breath-of-fire-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="breath-of-fire-start" onclick="startTimer('breath-of-fire', 60)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="breath-of-fire-stop" onclick="stopTimer('breath-of-fire')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Cross-Body Activation -->
+        <div id="cross-body" class="section">
+            <h2>Cross-Body Activation</h2>
+            <p>These movement patterns integrate both hemispheres of your brain to improve mental clarity.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="cross-body-timer">02:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="cross-body-progress"></div>
+                </div>
+            </div>
+            
+            <div id="cross-body-instruction">
+                <p>Prepare to begin Cross-Body Activation:</p>
+                <p>1. Touch your right hand to your left knee</p>
+                <p>2. Touch your left hand to your right knee</p>
+                <p>3. Continue alternating sides</p>
+                <p>4. Move at a comfortable pace for 2 minutes</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="cross-body-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="cross-body-start" onclick="startTimer('cross-body', 120)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="cross-body-stop" onclick="stopTimer('cross-body')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Cold Exposure -->
+        <div id="cold-exposure" class="section">
+            <h2>Cold Exposure</h2>
+            <p>This quick temperature change resets your alertness when you're feeling foggy or disconnected.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="cold-exposure-timer">00:30</div>
+                <div class="progress-bar">
+                    <div class="progress" id="cold-exposure-progress"></div>
+                </div>
+            </div>
+            
+            <div id="cold-exposure-instruction">
+                <p>Prepare to begin Cold Exposure:</p>
+                <p>1. Splash cold water on your face</p>
+                <p>2. Or place a cold cloth on the back of your neck</p>
+                <p>3. Focus on the sensation for 30 seconds</p>
+                <p>4. Take deep breaths as you experience the cold</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="cold-exposure-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="cold-exposure-start" onclick="startTimer('cold-exposure', 30)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="cold-exposure-stop" onclick="stopTimer('cold-exposure')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Coherent Breathing -->
+        <div id="coherent-breathing" class="section">
+            <h2>Coherent Breathing</h2>
+            <p>This breathing pattern balances your autonomic nervous system for optimal decision-making.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="coherent-breathing-timer">03:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="coherent-breathing-progress"></div>
+                </div>
+            </div>
+            
+            <div id="coherent-breathing-instruction">
+                <p>Prepare to begin Coherent Breathing:</p>
+                <p>1. Inhale for 5.5 seconds</p>
+                <p>2. Exhale for 5.5 seconds</p>
+                <p>3. Continue this rhythm</p>
+                <p>4. Practice for 3 minutes</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="coherent-breathing-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="coherent-breathing-start" onclick="startTimer('coherent-breathing', 180)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="coherent-breathing-stop" onclick="stopTimer('coherent-breathing')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- 3-3-6 Breath -->
+        <div id="three-three-six" class="section">
+            <h2>3-3-6 Breath</h2>
+            <p>This breathing pattern enhances focus and clarity for optimal financial decision-making.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="three-three-six-timer">02:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="three-three-six-progress"></div>
+                </div>
+            </div>
+            
+            <div id="three-three-six-instruction">
+                <p>Prepare to begin 3-3-6 Breath:</p>
+                <p>1. Inhale for 3 seconds</p>
+                <p>2. Hold for 3 seconds</p>
+                <p>3. Exhale for 6 seconds</p>
+                <p>4. Continue this pattern for 2 minutes</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="three-three-six-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="three-three-six-start" onclick="startTimer('three-three-six', 120)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="three-three-six-stop" onclick="stopTimer('three-three-six')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+        
+        <!-- Body Tapping Sequence -->
+        <div id="body-tapping" class="section">
+            <h2>Body Tapping Sequence</h2>
+            <p>This gentle tapping routine regulates energy throughout your body for balanced decision-making.</p>
+            
+            <div class="timer-container">
+                <div class="timer-display" id="body-tapping-timer">01:00</div>
+                <div class="progress-bar">
+                    <div class="progress" id="body-tapping-progress"></div>
+                </div>
+            </div>
+            
+            <div id="body-tapping-instruction">
+                <p>Prepare to begin Body Tapping Sequence:</p>
+                <p>1. Use your fingertips to gently tap the top of your head</p>
+                <p>2. Move to your forehead, then temples</p>
+                <p>3. Tap under your eyes, then collarbone</p>
+                <p>4. Finish by tapping the sides of your ribs</p>
+                <p>5. Spend about 10 seconds on each area</p>
+            </div>
+            
+            <div class="audio-controls">
+                <!-- REPLACE THIS AUDIO WITH YOUR OWN RECORDING -->
+                <audio id="body-tapping-audio" src="https://example.com/placeholder-audio.mp3" preload="auto"></audio>
+                <button class="btn" id="body-tapping-start" onclick="startTimer('body-tapping', 60)">Begin Practice</button>
+                <button class="btn btn-secondary hidden" id="body-tapping-stop" onclick="stopTimer('body-tapping')">Stop</button>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="returnFromTechnique()">Back to Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store user's answers
+        let answers = {
+            q1: '',
+            q2: '',
+            q3: ''
+        };
+        
+        // Store user's previous section for returning from techniques
+        let previousSection = 'welcome';
+        
+        // Store active timers
+        let activeTimers = {};
+        
+        // Show a specific section and hide others
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // If returning to welcome, reset assessment
+            if (sectionId === 'welcome') {
+                resetAssessment();
+            }
+            
+            // Store previous section for techniques
+            if (sectionId !== 'five-five-five' && 
+                sectionId !== 'body-scan' && 
+                sectionId !== 'vagus-reset' && 
+                sectionId !== 'breath-of-fire' && 
+                sectionId !== 'cross-body' && 
+                sectionId !== 'cold-exposure' && 
+                sectionId !== 'coherent-breathing' && 
+                sectionId !== 'three-three-six' && 
+                sectionId !== 'body-tapping') {
+                previousSection = sectionId;
+            }
+        }
+        
+        // Select an option in the assessment
+        function selectOption(element, questionId) {
+            // Remove selected class from all options in this question
+            element.parentNode.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Store the answer
+            answers[questionId] = element.getAttribute('data-value');
+        }
+        
+        // Process assessment results
+        function processAssessment() {
+            // Count the occurrences of each state
+            let counts = {
+                hyperarousal: 0,
+                hypoarousal: 0,
+                optimal: 0
+            };
+            
+            // Count each answer
+            for (let key in answers) {
+                if (answers[key]) {
+                    counts[answers[key]]++;
+                }
+            }
+            
+            // Determine the dominant state
+            let dominantState = 'optimal';
+            if (counts.hyperarousal > counts.hypoarousal && counts.hyperarousal > counts.optimal) {
+                dominantState = 'hyperarousal';
+            } else if (counts.hypoarousal > counts.hyperarousal && counts.hypoarousal > counts.optimal) {
+                dominantState = 'hypoarousal';
+            }
+            
+            // Hide all results
+            document.getElementById('hyperarousal-results').classList.add('hidden');
+            document.getElementById('hypoarousal-results').classList.add('hidden');
+            document.getElementById('optimal-results').classList.add('hidden');
+            
+            // Show the appropriate results
+            document.getElementById(dominantState + '-results').classList.remove('hidden');
+            
+            // Show the results section
+            showSection('results');
+        }
+        
+        // Reset the assessment
+        function resetAssessment() {
+            // Clear stored answers
+            answers = {
+                q1: '',
+                q2: '',
+                q3: ''
+            };
+            
+            // Remove selected class from all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected');
+            });
+        }
+        
+        // Start a specific technique
+        function startTechnique(techniqueId) {
+            showSection(techniqueId);
+        }
+        
+        // Return from a technique to the previous section
+        function returnFromTechnique() {
+            // Stop any active timers
+            for (let timerId in activeTimers) {
+                clearInterval(activeTimers[timerId]);
+                delete activeTimers[timerId];
+            }
+            
+            // Reset all timers and progress bars
+            document.querySelectorAll('.timer-display').forEach(timer => {
+                const id = timer.id.replace('-timer', '');
+                const duration = getDuration(id);
+                timer.textContent = formatTime(duration);
+            });
+            
+            document.querySelectorAll('.progress').forEach(progress => {
+                progress.style.width = '0%';
+            });
+            
+            // Hide all stop buttons and show all start buttons
+            document.querySelectorAll('[id$="-stop"]').forEach(button => {
+                button.classList.add('hidden');
+            });
+            
+            document.querySelectorAll('[id$="-start"]').forEach(button => {
+                button.classList.remove('hidden');
+            });
+            
+            // Return to previous section
+            showSection(previousSection);
+        }
+        
+        // Get duration for a technique in seconds
+        function getDuration(techniqueId) {
+            switch(techniqueId) {
+                case 'five-five-five':
+                    return 60; // 1 minute
+                case 'body-scan':
+                    return 120; // 2 minutes
+                case 'vagus-reset':
+                    return 30; // 30 seconds
+                case 'breath-of-fire':
+                    return 60; // 1 minute
+                case 'cross-body':
+                    return 120; // 2 minutes
+                case 'cold-exposure':
+                    return 30; // 30 seconds
+                case 'coherent-breathing':
+                    return 180; // 3 minutes
+                case 'three-three-six':
+                    return 120; // 2 minutes
+                case 'body-tapping':
+                    return 60; // 1 minute
+                default:
+                    return 60; // Default 1 minute
+            }
+        }
+        
+        // Format time in seconds to MM:SS
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Start timer for a technique
+        function startTimer(techniqueId, duration) {
+            // Get elements
+            const timerDisplay = document.getElementById(`${techniqueId}-timer`);
+            const progressBar = document.getElementById(`${techniqueId}-progress`);
+            const startButton = document.getElementById(`${techniqueId}-start`);
+            const stopButton = document.getElementById(`${techniqueId}-stop`);
+            const audio = document.getElementById(`${techniqueId}-audio`);
+            
+            // Hide start button and show stop button
+            startButton.classList.add('hidden');
+            stopButton.classList.remove('hidden');
+            
+            // Start audio if available
+            if (audio) {
+                audio.play();
+            }
+            
+            // Set initial time
+            let timeLeft = duration;
+            timerDisplay.textContent = formatTime(timeLeft);
+            progressBar.style.width = '0%';
+            
+            // Set interval to update timer
+            const timerId = setInterval(() => {
+                timeLeft--;
+                
+                // Update display
+                timerDisplay.textContent = formatTime(timeLeft);
+                
+                // Update progress bar
+                const progress = 100 - (timeLeft / duration * 100);
+                progressBar.style.width = `${progress}%`;
+                
+                // Check if timer is complete
+                if (timeLeft <= 0) {
+                    clearInterval(activeTimers[techniqueId]);
+                    delete activeTimers[techniqueId];
+                    
+                    // Reset UI
+                    document.getElementById(`${techniqueId}-start`).classList.remove('hidden');
+                    document.getElementById(`${techniqueId}-stop`).classList.add('hidden');
+                    
+                    // Stop audio
+                    if (audio) {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }
+                }
+            }, 1000);
+            
+            // Store timer ID
+            activeTimers[techniqueId] = timerId;
+        }
+        
+        // Stop timer for a technique
+        function stopTimer(techniqueId) {
+            // Clear interval
+            if (activeTimers[techniqueId]) {
+                clearInterval(activeTimers[techniqueId]);
+                delete activeTimers[techniqueId];
+            }
+            
+            // Reset UI
+            document.getElementById(`${techniqueId}-start`).classList.remove('hidden');
+            document.getElementById(`${techniqueId}-stop`).classList.add('hidden');
+            
+            // Reset timer display
+            const duration = getDuration(techniqueId);
+            document.getElementById(`${techniqueId}-timer`).textContent = formatTime(duration);
+            
+            // Reset progress bar
+            document.getElementById(`${techniqueId}-progress`).style.width = '0%';
+            
+            // Stop audio
+            const audio = document.getElementById(`${techniqueId}-audio`);
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+    </script>
+</body>
+</html>
